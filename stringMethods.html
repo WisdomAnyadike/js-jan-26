@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    let fruits1 = new Array()
+    let fruits2 = []
+
+    let fruits = ['orange', 'mango', 'cherry']
+    console.log(fruits);
+
+    fruits[1] = 'agbalumo'
+    console.log(fruits);
+
+    console.log(fruits[1]);
+
+
+    let object = new Object()
+    let fruit = {
+        name: 'orange',
+        type: 'shaka',
+        age: 78,
+        price: undefined,
+    }
+
+    fruit.name
+
+    let string = 'javascript'
+
+    string = 'python'
+    console.log(string);
+
+    string[4] = 'z'
+    console.log(string);
+
+    // function
+
+    function add2and3() {
+        let addition = 2 + 3
+        console.log(addition);
+    }
+
+    add2and3()
+
+
+    let myName = 'wisdom+is+a+boy'
+    let number = '45673'
+    // console.log(number.length); this is wrong
+
+    console.log(myName.length);
+
+    let myNewName = myName.toUpperCase()
+
+    console.log(myName, myNewName);
+
+    console.log(myName.substr(12, 3));
+    console.log(myName.substring(12, 15));
+
+    // myName = myName.substring(12, 15)
+
+    let myNewArr = myName.split('+')
+    console.log(myNewArr);
+
+    console.log(myName);
+
+    let countries = 'Finland, Sweden, Norway, Denmark, and Iceland'
+
+    let countriesArr = countries.split('and ')
+
+    console.log(countriesArr);
+
+    let text = '   30 Days Of JavaScript   ' //30DaysOfJavaScript
+    console.log(text, text.length);
+
+    console.log(text.trim(), text.trim().length);
+
+    let string5 = '30 JavaScript Days Of JavaScript'
+    string5 = string5.replaceAll('JavaScript', 'Python')
+
+    console.log(string5);
+
+
+    let newString = 'i came to class'
+    let newString2 = 'another string string'
+
+    let lastIndexG = newString2.length - 1
+    console.log(lastIndexG);
+
+    newString2.indexOf('r')
+    newString2.indexOf('string')
+
+
+    console.log(newString.charAt(7), newString[7]);
+
+
+    let string3 = 'i want to eat'
+    string3.substring(10, 13)
+    string3.slice(10, 13)
+
+
+    let string7 = 'I love JavaScript. If you do not love JavaScript what else can you love.'
+
+    console.log(string7.indexOf('love'));
+    console.log(string7.lastIndexOf('love'));
+
+
+    let cutSentence = string7.substring(0, string7.lastIndexOf('JavaScript'))
+
+    console.log(cutSentence.lastIndexOf('love'));
+
+    let secondText = 'am'
+    let thirdText = 'a'
+    let forthText = 'boy'
+
+    let oneString = 'am a boy'
+
+    let startString = 'I'
+    let theSentence = startString.concat(' am a boy')
+
+    console.log(theSentence);
+
+    'word'.concat(' games')
+
+
+    let string9 = 'Love is the best to in this world'
+    console.log(string9.startsWith('Love is the best to in this world'));
+    console.log(string9.endsWith('Love is the best to in this world'));
+
+
+    let string10 = 'love'
+console.log(string10.repeat(1)) // love love love love love love love love love love
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>

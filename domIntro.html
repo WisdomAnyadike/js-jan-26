@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input id="myText"  type="text"> <button onclick="clickMe()"> click </button>
+
+
+    <h1 id="value"> </h1>
+
+
+    <!-- <input type="text" id="input1">
+
+    <img id="myImage">
+
+    <p id="paragrapph"> </p> -->
+
+</body>
+
+</html>
+<script>
+    // 
+    // let pTag = document.getElementById('paragrapph')
+    // let input = document.getElementById('input1')
+    // let image = document.getElementById('myImage')
+    // input.value = 'hello'
+
+    // image.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoBuMvSuYezLE9rwI-zOJeIOmcIGfDPqOvFA&s'
+
+    // image.width = '500'
+
+
+    // pTag.textContent = ' <h1> hello, do you love js <h1>'
+
+    let input = document.getElementById('myText')
+    console.log(input.value);
+
+
+    let ptag = document.getElementById('value')
+
+    function clickMe() {
+        console.log(input.value);
+        ptag.innerHTML = input.value
+    }
+
+    // clickMe()
+
+
+
+
+
+</script>

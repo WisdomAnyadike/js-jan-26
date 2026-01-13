@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input id="input" type="text">
+    <button id="click" onclick="censorWord()">Censor</button>
+    <div id="outputText">
+        <p id="result"></p>
+    </div>
+</body>
+
+</html>
+<script>
+    let input = document.getElementById('input')
+    let button = document.getElementById('click')
+    let div = document.getElementById('outputText')
+    let pTag = document.getElementById('result')
+    let badWords = ['fuck', 'pleb', 'ass', 'bitch']
+
+    // fuCk up o , i hate this pleb
+
+    function censorWord() {
+        console.log(input.value);
+        let finalSentence = input.value.toLowerCase().replaceAll(badWords[0], '**ck').replaceAll(badWords[1], '**eb').replaceAll(badWords[2], '**s').replaceAll(badWords[3], 'b***h')
+
+        pTag.innerHTML = finalSentence.toUpperCase()
+
+        // function capitalizeFirstLetter(text) {
+            
+        //     return text.replace(text[0] , text[0].toUpperCase())
+        // }
+    }
+
+
+
+</script>

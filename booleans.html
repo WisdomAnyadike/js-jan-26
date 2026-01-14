@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTuzqMrax_TxNQORfOCyju9tQuB1D9tj10pQ&s" width="200"
+        height="200" alt="" id="lightBulb">
+
+    <button onclick="toogleLightSwitch()"> click me </button>
+
+</body>
+
+</html>
+<script>
+    let lightBulb = document.getElementById('lightBulb')
+
+    let canSubmit = true
+
+
+    if ('') {
+        console.log('mr wisdom can submit');
+    } else {
+        console.log('mr wisdom cannot submit');
+    }
+
+    let isLightOn = true
+
+    function toogleLightSwitch() {
+        if (isLightOn) {
+            lightBulb.src = 'https://cdn.mos.cms.futurecdn.net/HaPnm6P7TZhPQGGUxtDjAg-600-80.jpg'
+        } else {
+            lightBulb.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTuzqMrax_TxNQORfOCyju9tQuB1D9tj10pQ&s'
+        }
+    }
+
+
+
+
+</script>

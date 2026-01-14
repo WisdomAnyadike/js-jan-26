@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="mass" value="">
+    <button onclick="weightCalculator()"> calculate weight </button>
+    <div id="previewWeight">
+        <!-- the weight of an object with mass 40kg is (40*9.81)N -->
+    </div>
+</body>
+</html>
+<script>
+    let inputElement = document.getElementById('mass')
+    let divTag = document.getElementById('previewWeight')
+    const gravity = 9.81
+
+    function weightCalculator() {
+        console.log(inputElement);
+        console.log(inputElement.value);
+        let mass = inputElement.value //2kg
+        let weight = inputElement.value * gravity
+        let finalSentence = `the weight of an object with mass ${mass}kg is ${weight}N`
+        divTag.innerHTML = finalSentence
+    }
+
+
+
+    // weightCalculator()
+
+
+</script>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <label for="inputLength"> length: </label>
+        <input type="text" id="inputLength">
+    </div>
+
+    <div>
+        <label for="inputBreadth"> Breadth: </label>
+         <input type="text" id="inputBreadth">
+    </div>
+
+
+   
+    <button onclick="calculate()"> calculate perimeter</button>
+
+    <div id="display">
+
+    </div>
+</body>
+
+</html>
+<script>
+
+    let inputTag1 = document.getElementById('inputLength')
+    let inputTag2 = document.getElementById('inputBreadth')
+    let div = document.getElementById('display')
+
+    console.log(inputTag1, inputTag2, div);
+    function calculate() {
+        let add = +inputTag1.value + +inputTag2.value
+        let perimeter = add * 2
+        div.innerHTML = `The perimeter of a rectangle with length ${inputTag1.value} and breadth ${inputTag2.value} is ${perimeter}m`
+
+        console.log(add);
+
+    }
+
+
+
+</script>

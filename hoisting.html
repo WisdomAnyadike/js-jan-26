@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // var lessons = undefined
+    //  function teachHoisting(params) {
+    //
+    //   }
+    console.log(talk);
+
+    console.log(lessons);
+
+
+    var lessons = 'software'
+    console.log(lessons);
+
+
+
+    let classes = 'software'
+    console.log(classes);
+
+    teachHoisting()
+
+    function teachHoisting() {
+        console.log('i like js');
+
+    }
+
+    //block scope with let/const declarations
+    if (true) {
+        // hello does not exist(you would get a reference error)
+        let hello = 'hello'
+        // you can access hello
+    }
+
+    console.log(talk);
+
+
+    // block scope with var declarations 
+    if (true) {
+        console.log(talk);
+        // the variable talk still behaves like a global variable , its not at all imprisoned by the block scope. its assigned to undefined above its initialization and assigned to its actual value below its initialization
+        var talk = 'i like talking'
+
+    }
+    console.log(talk);
+
+
+    if (true) {
+        console.log(talk);
+
+    }
+
+
+    // function scope behaviour with let/const 
+
+    function wisdom() {
+        let myName = 'wisdom'
+        console.log(myName);
+    }
+
+    wisdom()
+    // console.log(myName);
+
+
+
+    // function scope behaviour with var keyword
+    function showVarBehaviour(params) {
+        console.log(tribe);
+        var tribe = 'yoruba'
+        console.log(tribe);
+    }
+
+
+    showVarBehaviour()
+
+    
+
+
+</script>

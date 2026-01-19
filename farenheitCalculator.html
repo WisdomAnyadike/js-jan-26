@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input id="celciusInputElement" type="text">
+    <button onclick="calculate()"> convert to farenheit </button>
+
+    <h1 id="result"> </h1>
+
+</body>
+
+</html>
+<script>
+    let inputForCelcius = document.getElementById('celciusInputElement')
+    let result = document.getElementById('result')
+
+
+    function calculate() {
+
+        let celciusValue = inputForCelcius.value.trim()
+        console.log(celciusValue);
+
+        if (celciusValue === '') {
+            result.innerHTML = 'please input a value'
+        } else if (isNaN(celciusValue)) {
+            result.innerHTML = 'please input a numeric value'
+        } else {
+            console.log(celciusValue);
+            let farenheitValue = (celciusValue * 9 / 5) + 32
+            result.innerHTML = farenheitValue
+
+        }
+    }
+
+
+    // if the user doesnt type in a value , output "you must send in a value"
+    // if not , allow the user calculate
+
+    console.log('hmm');
+
+    console.log(isNaN('67'));
+
+    console.log('i got here');
+
+
+</script>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Guess a Number from 0 - 10</h1>
+    <input id="numberInput" type="number" min="0" max="10">
+    <button onclick="guessNumber()"> guess </button>
+
+    <p id="output"> </p>
+
+</body>
+
+</html>
+<script>
+    let numberInputElement = document.getElementById('numberInput')
+    let outputElement = document.getElementById('output')
+    //2
+    // console.log(randomNumber);
+
+
+    function guessNumber() {
+        let randomNumber = Math.floor(Math.random() * 11)
+        let guessedNumber = +numberInputElement.value
+
+        if (guessedNumber < 0 || guessedNumber > 10) {
+            outputElement.innerHTML = `input a number between 0 and 10`
+            outputElement.style.color = 'red'
+        }
+        else if (guessedNumber === randomNumber) {
+            outputElement.innerHTML = `yayy, ${randomNumber} is correct`
+            outputElement.style.color = 'green'
+
+        } else {
+            outputElement.innerHTML = `You guessed wrong, the correct answer is ${randomNumber}`
+            outputElement.style.color = 'orange'
+        }
+        console.log(randomNumber);
+
+        // 0 - 10
+
+    }
+
+
+
+    // Math.random() * 10(0.01 - 9.9999)   // Math.floor = 0 - 10  || Math.ceil = 1-10
+    // min 0.001 * 11 = 0.011
+    //  max 0.999999 * 11 = 10.999 
+
+
+    let pTag = {
+        style: {
+            color: 'red',
+            zIndex: 3,
+            backgroundColor: "green"
+        }
+    }
+
+</script>

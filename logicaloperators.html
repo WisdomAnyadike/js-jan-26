@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input id="numberInput" type="number">
+    <button onclick="increaseNum()"> increase by 1</button>
+    <p id="errorOutput"> </p>
+
+</body>
+
+</html>
+<script>
+
+    console.log(4 > 3 || 0 > 2);
+
+
+    let number = 20
+    // number = number + 1
+    // number += 1
+    ++number //21
+    number++ // 21
+    console.log(number);
+
+    number--
+    --number
+    console.log(++number);
+
+    let numberInput = document.getElementById('numberInput')
+    let errorOutput = document.getElementById('errorOutput')
+
+    function increaseNum() {
+        if (numberInput.value === '') {
+            errorOutput.innerHTML = 'please enter a number'
+        } else {
+            errorOutput.innerHTML = '';
+            ++numberInput.value
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>

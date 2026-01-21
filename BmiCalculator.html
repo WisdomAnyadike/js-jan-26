@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre>
+        Body mass index(BMI) is calculated as follows: 
+        bmi = weight in Kg / (height x height) in m2. 
+        Write a function which calculates bmi. 
+        BMI is used to broadly define different weight groups in adults
+        20 years old or older.Check if a person is underweight,
+        normal, overweight or obese based the information given below.
+        The same groups apply to both men and women.
+        Underweight: BMI is less than 18.5
+        Normal weight: BMI is 18.5 to 24.9
+        Overweight: BMI is 25 to 29.9
+        Obese: BMI is 30 or more
+    </pre>
+    <div>
+        <label for="weight"> weight: </label>
+        <input type="text" id="weight">
+    </div>
+
+    <div>
+        <label for="height"> height: </label>
+        <input type="text" id="height">
+    </div>
+    <br>
+    <br>
+    <button onclick="bmiCal()"> Calculate BMI </button>
+    <h4> BMI: <span id="BMI"> </span> </h4>
+    <p id="bmiSentence"> </p>
+
+
+</body>
+
+</html>
+<script>
+    const weightInput = document.getElementById('weight')
+    const heightInput = document.getElementById('height')
+    const bmiSentence = document.getElementById('bmiSentence')
+    const bmiDisplay = document.getElementById('BMI')
+
+    function bmiCal() {
+        bmiDisplay.innerHTML = ''
+        let weight = weightInput.value //''
+        let height = heightInput.value //1.7
+
+        if (weight.trim() === '' || height.trim() === '') {
+            bmiSentence.innerHTML = 'All fields are mandatory'
+        } else if (isNaN(weight) || isNaN(height)) {
+            bmiSentence.innerHTML = 'Please input a numeric value'
+        } else if (weight <= 0 || height <= 0) {
+            bmiSentence.innerHTML = 'Please enter a valid height or weight'
+        } else {
+            let Bmi = +weight / (Number(height) ** 2)
+            bmiDisplay.innerHTML = Bmi
+            if (Bmi < 18.5) {
+                bmiSentence.innerHTML = `Underweight, The BMI of a person with ${weight}kg and ${height}kg is ${Bmi}`
+            } else if (Bmi >= 18.5 && Bmi <= 24.9) {
+                bmiSentence.innerHTML = `Normal weight, The BMI of a person with ${weight}kg and ${height}kg is ${Bmi}`
+            }
+            else if (Bmi > 24.9 && Bmi <= 29.9) {
+                bmiSentence.innerHTML = `over weight, The BMI of a person with ${weight}kg and ${height}kg is ${Bmi}`
+            }
+            else {
+                bmiSentence.innerHTML = `Obese, The BMI of a person with ${weight}kg and ${height}kg is ${Bmi}`
+            }
+        }
+
+
+
+
+    }
+
+
+
+
+
+
+</script>

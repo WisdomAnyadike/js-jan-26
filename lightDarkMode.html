@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="clickMe()"> dark mode </button>
+
+</body>
+
+</html>
+<script>
+    // let isBackgroundWhite = true
+
+    let body = document.body
+    body.style.backgroundColor = 'white'
+    console.log(body.style.backgroundColor);
+
+    //  let changeBtn = document.getElementById('click')
+
+    function clickMe() {
+        if (body.style.backgroundColor === 'white') {
+            body.style.backgroundColor = 'black'
+        } else {
+            body.style.backgroundColor = 'white'
+        }
+        
+        // if (isBackgroundWhite === true) {
+        //     document.body.style.backgroundColor = 'black'
+        //     isBackgroundWhite = false
+        // } else {
+        //     document.body.style.backgroundColor = 'white'
+        //     isBackgroundWhite = true
+        // }
+    }
+
+
+
+
+
+</script>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="display('1')"> 1 </button>
+    <button onclick="display('2')"> 2 </button>
+    <button onclick="display('3')"> 3 </button>
+
+    <p id="displayNumber"> </p>
+
+
+</body>
+
+</html>
+<script>
+
+
+    function display(params) {
+        displayNumber.innerHTML += params
+    }
+
+    // function display1() {
+    //     displayNumber.innerHTML = one.innerHTML
+    // }
+
+    // function display2() {
+    //     displayNumber.innerHTML = two.innerHTML
+    // }
+
+    // function display3() {
+    //     displayNumber.innerHTML = three.innerHTML
+    // }
+
+
+    // function declaration
+    // function display() {
+
+    // }
+
+
+    //function expression
+    // myFunctionExpression()
+
+
+    let myFunctionExpression = function () {
+        console.log('what');
+
+    }
+
+
+    myFunctionExpression()
+
+    // let number = 'hello'
+    function addNumberto5(number) {
+        console.log(number + 5);
+
+    }
+
+    addNumberto5(50)
+    addNumberto5(42)
+
+    function sayHellotoWisdom(params) {
+        console.log('hello' + 'wisdom');
+
+    }
+
+    function sayHellotoDayo(params) {
+        console.log('hello' + 'dayo');
+
+    }
+
+    function sayHellotoSimi(params) {
+        console.log('hello' + 'simi');
+
+    }
+
+    sayHellotoDayo()
+    sayHellotoSimi()
+    sayHellotoWisdom()
+
+
+    function sayHellotoUser(params) {
+        console.log('hello ' + params);
+    }
+
+    sayHellotoUser('wisdom')
+    sayHellotoUser('dayo')
+    sayHellotoUser('simi')
+
+
+    // explain
+
+
+    function thankUser(secondUser, firstUser, thirdUser = 'tolu') {
+        console.log(`thank ${firstUser} and ${secondUser} and ${thirdUser}`);
+    }
+
+
+    thankUser('wisdom', 'david', 'dele')
+    thankUser('heritage', 'daniel')
+
+
+
+
+
+
+
+
+
+</script>

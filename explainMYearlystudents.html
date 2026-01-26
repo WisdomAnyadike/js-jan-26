@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- <input type="number" id="new" >
+    <button onclick="runFunction()"> click me </button> -->
+    <input type="text" id="myInput">
+    <button onclick="checkDays()"> check days </button>
+
+
+</body>
+
+</html>
+<script>
+
+    // function runFunction() {
+    //     let number = document.getElementById('new')
+    //     console.log(typeof number.value, number.value);
+    // }
+
+    // february - 28
+    // september , april , june , november - 30
+    // january , march , may , july , august , october , december - 31
+
+    let inputElement = document.getElementById('myInput') // input element
+
+    // function checkDays() {
+    //     let day = inputElement.value.toUpperCase().trim()
+
+    //     if (day === '') {
+    //         alert('all fields are mandatory')
+    //     } else if (day === "JANUARY" || day === "MARCH" || day === "MAY" || day === "AUGUST" || day === "OCTOBER" || day === "DECEMBER") {
+    //         alert(`${day[0].toUpperCase() + day.slice(1, day.length).toLowerCase()} has 31 days`)
+    //     } else if (day === 'SEPTEMBER' || day === 'APRIL' || day === 'JUNE' || day === 'NOVEMBER') {
+    //         alert(`${day[0].toUpperCase() + day.slice(1, day.length).toLowerCase()} has 30 days`)
+    //     } else if (day === 'FEBRUARY') {
+    //         alert(`${day[0].toUpperCase() + day.slice(1, day.length).toLowerCase()} has 28 days`)
+    //     }
+    //     else {
+    //         alert('invalid month')
+    //     }
+
+    // }
+
+
+    function checkDays() {
+        let key = inputElement.value.toUpperCase().trim() //february
+
+        switch (key) {
+            case '':
+                alert(`all fields are mandatory`)
+                break;
+            case 'FEBRUARY':
+                alert(`${key} has 28 days`)
+                break;
+            case 'SEPTEMBER':
+            case 'APRIL':
+            case 'JUNE':
+            case 'NOVEMBER':
+                alert(`${key} has 30 days`)
+                break;
+            case 'JANUARY':
+            case 'MAY':
+            case 'MARCH':
+            case 'OCTOBER':
+            case 'JULY':
+            case 'DECEMBER':
+            case 'AUGUST':
+                alert(`${key} has 31 days`)
+                break;
+            default:
+                alert('Invalid Month')
+                break;
+        }
+
+    }
+
+    // tenary operator
+    3 > 5 ? console.log('hi') : -1 > 4 ? console.log('why') : console.log('hello')
+    //  condition(true/false) ?   if true is returned : if false is returned
+
+
+
+    let promptValue = prompt('enter value here')
+    console.log(promptValue);
+
+
+
+
+
+    // alert('hello class')
+
+
+
+
+
+
+</script>

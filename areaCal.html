@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="lenght">
+    <input type="text" id="width">
+
+    <button onclick="displayArea()"> cal area </button>
+    <p id="display"></p>
+
+</body>
+
+</html>
+<script>
+
+    let lenght = document.getElementById('lenght')
+    let width = document.getElementById('width')
+
+    function displayArea() {
+        display.innerHTML = ` the area of a rectangle with length ${lenght.value} and width ${width.value} is ${calArea(lenght.value, width.value)}`
+    }
+
+
+    //  function displayArea() {
+    //     let lenghtValue = lenght.value
+    //     let widthValue = width.value
+    //     let area = lenghtValue * widthValue
+    //     display.innerHTML = ` the area of a rectangle with length ${lenght.value} and width ${width.value} is ${area}`
+    // }
+
+
+    function calArea(length = 5, width = 5) {
+        let area = Number(length) * Number(width)
+        return area
+    }
+
+
+    function sayHi(name) {
+        return function hmm(params) {
+            console.log('hey');
+        }
+    }
+
+    // console.log(sayHi('wisdom'));
+
+    // let sentence = sayHi('wisdom') + ' ' + 'anyadike'
+    // console.log(sentence);
+
+    console.log(sayHi('david')());
+
+
+
+
+
+</script>

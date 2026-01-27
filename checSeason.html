@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .back {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="back" id="div">
+        <div>
+            <input type="text" id="season">
+            <button onclick="displaySeason()"> check and display season </button>
+            <p id="pTag"></p>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
+<script>
+    //Check if the season is Autumn, Winter, Spring or Summer. If the user input is :
+    // September, October or November, the season is Autumn.
+    // December, January or February, the season is Winter.
+    // March, April or May, the season is Spring
+    // June, July or August, the season is Summer
+
+
+    let display = document.getElementById('pTag')
+    let div = document.getElementById('div')
+    let input = document.getElementById('season')
+    displayDefaultBackground()
+
+
+    function displayDefaultBackground() {
+        div.style.backgroundImage = 'url(https://plus.unsplash.com/premium_vector-1713273742903-2031a1cd4099?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)'
+    }
+
+    // autumn , spring , winter , summer
+    let seasons = [
+        'https://images.pexels.com/photos/1741696/pexels-photo-1741696.jpeg?cs=srgb&dl=pexels-jake-pnw-1741696.jpg&fm=jpg',
+        'https://images.pexels.com/photos/1741696/pexels-photo-1741696.jpeg?cs=srgb&dl=pexels-jake-pnw-1741696.jpg&fm=jpg',
+        'https://media.istockphoto.com/id/460682111/photo/panorama-of-the-winter-sunrise-in-mountains.jpg?s=612x612&w=0&k=20&c=DYe99hLsrxeGCIFy-sYTCnQCBllnoPVn3digKa7-J9I=',
+        'https://miro.medium.com/v2/resize:fit:1400/0*1DtL639ZXJQj8ZDA.jpg'
+    ]
+
+    function displaySeason() {
+        let userInput = input.value.trim().toLowerCase()
+        if (userInput === '') {
+            alert('Please enter a value')
+
+        } else if (userInput === 'september' || userInput === 'october' || userInput === 'november') {
+            display.innerHTML = `${userInput} is Autumn`
+            div.style.backgroundImage = `url(${seasons[0]})`
+        }
+        else if (userInput === 'december' || userInput === 'january' || userInput === 'february') {
+            display.innerHTML = `${userInput} is Winter`
+            div.style.backgroundImage = `url(${seasons[2]})`
+
+        } else if (userInput === 'march' || userInput === 'april' || userInput === 'may') {
+            display.innerHTML = `${userInput} is Spring`
+            div.style.backgroundImage = `url(${seasons[1]})`
+
+        } else if (userInput === 'june' || userInput === 'july' || userInput === 'august') {
+            display.innerHTML = `${userInput} is Summer`
+            div.style.backgroundImage = `url(${seasons[3]})`
+
+        } else {
+            display.innerHTML = 'Type in a correct month'
+            displayDefaultBackground()
+        };
+
+    }
+
+
+    
+
+
+
+// switch (key) {
+//     case 'hello':
+//          displayDefaultBackground()
+
+//         break;
+
+//     default:
+//         break;
+// }
+</script>

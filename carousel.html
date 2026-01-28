@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .colorContainer {
+            width: 400px;
+            height: 600px;
+            border: 1px solid black;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #forColor {
+            width: 300px;
+            height: 400px;
+            border: 1px solid brown;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="colorContainer">
+            <div id="forColor"> </div>
+
+
+            <p><button onclick="previous()"> prev </button> <button onclick="next()"> next </button></p>
+        </div>
+
+
+
+    </div>
+
+
+</body>
+
+</html>
+<script>
+
+    let colorDiv = document.getElementById('forColor')
+    let colors = ['blue', 'red', 'orange', 'green', 'purple', 'yellow', 'cyan']
+    let index = 0
+    colorDiv.style.backgroundColor = colors[index]
+
+    console.log(index);
+
+
+    function next() {
+        if (index === colors.length - 1) {
+            index = 0
+        } else {
+            index += 1
+        }
+        colorDiv.style.backgroundColor = colors[index]
+        console.log(index);
+    }
+
+    function previous() {
+        if (index === 0) {
+            index = colors.length - 1
+        } else {
+            index -= 1
+        }
+
+        colorDiv.style.backgroundColor = colors[index]
+           console.log(index);
+    }
+
+
+
+
+</script>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #first {
+            color: blue;
+        }
+
+        #second {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <br>
+    <br>
+    <div>
+        <span id="first"> </span> <span id="sym"></span> <span id="second"> </span>
+    </div>
+    <br>
+    <div>
+        <input type="text" readonly id="forOutput">
+    </div>
+    <br>
+    <br>
+    <div>
+        <button onclick="addNum('0')"> 0 </button>
+        <button onclick="addNum('1')"> 1 </button>
+        <button onclick="addNum('2')"> 2 </button>
+        <button onclick="addNum('3')"> 3 </button>
+        <button onclick="addNum('4')"> 4 </button>
+        <button onclick="addNum('5')"> 5 </button>
+        <button onclick="addNum('6')"> 6 </button>
+        <button onclick="addNum('7')"> 7 </button>
+        <button onclick="addNum('8')"> 8 </button>
+        <button onclick="addNum('9')"> 9 </button>
+        <button onclick="addSym('+')"> + </button>
+        <button onclick="addSym('-')"> - </button>
+        <button onclick="addSym('/')"> / </button>
+        <button onclick="addSym('*')"> * </button>
+        <button onclick="calculate()"> = </button>
+    </div>
+
+</body>
+
+</html>
+<script>
+    let inputElement = document.getElementById('forOutput')
+
+    function addNum(num) {
+        if (sym.innerHTML.trim() === '') {
+            first.innerHTML += num
+        } else {
+            second.innerHTML += num
+        }
+
+        inputElement.value += num
+    }
+
+
+    function addSym(symbol) {
+        if (first.innerHTML.trim() === '' && symbol !== '-') {
+            alert('input a value')
+            return
+        }
+
+        if (first.innerHTML.trim() === '' && symbol === '-') {
+            first.innerHTML = symbol  //'+'
+            return
+        }
+
+
+        if (sym.innerHTML.trim() === symbol) {
+            calculate()
+            return
+        }
+
+
+
+        sym.innerHTML = symbol //'+'
+        inputElement.value = ''
+
+    }
+
+
+    function calculate() {
+
+        if (!first.innerHTML.trim() || !second.innerHTML.trim() || !sym.innerHTML.trim()) {
+            alert('input values to be calculated')
+            return
+        }
+
+
+        if (sym.innerHTML.trim() === '+') {
+            let finalAns = +first.innerHTML + +second.innerHTML // 90
+            inputElement.value = finalAns
+            first.innerHTML = finalAns
+            sym.innerHTML = ''
+            second.innerHTML = ''
+            return
+        }
+
+        if (sym.innerHTML.trim() === '-') {
+            let finalAns = +first.innerHTML - +second.innerHTML
+            inputElement.value = finalAns
+            first.innerHTML = finalAns
+            sym.innerHTML = ''
+            second.innerHTML = ''
+            return
+        }
+
+        if (sym.innerHTML.trim() === '/') {
+            let finalAns = +first.innerHTML / +second.innerHTML
+            inputElement.value = finalAns
+            first.innerHTML = finalAns
+            sym.innerHTML = ''
+            second.innerHTML = ''
+            return
+        }
+
+
+        let finalAns = +first.innerHTML * +second.innerHTML
+        inputElement.value = finalAns
+        first.innerHTML = finalAns
+        sym.innerHTML = ''
+        second.innerHTML = ''
+
+
+
+    }
+
+
+
+
+
+
+</script>

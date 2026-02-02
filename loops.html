@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+
+    // for (initialization ; establish how many iterations ; increase or decrease) {
+    //   write my algorithm
+    //}
+
+
+    for (let beginValue = 1; beginValue <= 5; beginValue++) {
+        console.log('hello');
+        console.log(beginValue);
+
+    }
+
+    for (let index = 0; index >= -4; index--) {
+        console.log('hello');
+        console.log(index);
+
+    }
+
+    //0 * 0 = 0
+    // 1 * 1 = 1
+    // 2 * 2 = 4
+    //  3 * 3 = 9
+    //  4 * 4 = 16
+    //  5 * 5 = 25
+
+    for (let initialValue = 12; initialValue >= 0; initialValue--) {
+        // let ans = initialValue * initialValue; // 5 * 5
+        console.log(`5 * ${initialValue} = ${5 * initialValue}`);
+
+
+
+    }
+
+
+    let arr = [1, 2, 3, 4, 5]
+    // add to end of array
+    arr.push(6, 7, 8)
+
+    // add to the beggining of array
+    arr.unshift(-1, 0)
+
+    // remove a singular member from the end of the array
+    arr.pop()
+    arr.pop()
+    arr.pop()
+
+    // remove a singular member from the beginning of the array
+    arr.shift()
+
+
+    console.log(arr);
+    let distortedArr = [2, 3, 4, 1, 36, 4]
+    distortedArr.sort((a, b) => a - b)
+    console.log(distortedArr);
+
+    let textArr = ['me', 'hey', 'wow', 'ant']
+    textArr.sort()
+    console.log(textArr);
+
+
+    const countries = ['Finland', 'Sweden', 'Denmark', 'Zambia', 'Norway', 'Iceland']
+    const newArr = []
+    const anotherArr = []
+
+    for (let i = 0; i < countries.length; i++) {
+        newArr.push(countries[i].toUpperCase())
+    }
+
+    for (let index = countries.length - 1; index >= 0; index--) {
+        anotherArr.push(countries[index].toUpperCase())
+
+    }
+
+    console.log(anotherArr);
+
+    console.log(newArr);
+
+
+
+</script>

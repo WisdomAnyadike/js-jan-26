@@ -8,7 +8,8 @@
 </head>
 
 <body>
-    <input id="number" type="text"> <button onclick="showTable()"> click </button>
+    <input id="startNumber" type="text"> <input id="endNumber" type="text">
+    <button onclick="showTable()"> click </button>
     <div id="preview">
 
     </div>
@@ -19,11 +20,45 @@
 <script>
 
 
-    function showTable() { 
-        let numberValue = number.value //12
-        for (let index = 0; index < 13; index++) {
-            preview.innerHTML += `<p> ${numberValue} * ${index} = ${numberValue * index} </p>`
+    function showTable() {
+        let startNumberValue = startNumber.value
+        let endNumberValue = endNumber.value
+        if (startNumberValue === "" || endNumberValue === "") {
+            alert('all fields are mandatory')
+            return;
         }
+
+
+        if (isNaN(startNumberValue) || isNaN(endNumberValue)) {
+            alert('please provide a numeric value ')
+            return;
+        }
+
+        startNumberValue = +startNumber.value
+        endNumberValue = +endNumber.value
+        preview.innerHTML = ''
+
+        if (startNumberValue < endNumberValue) {
+            for (let i = startNumberValue; i <= endNumberValue; i++) {
+                preview.innerHTML += `<h1> Multiplication table for ${i}</h1>`
+                for (let index = 0; index < 13; index++) {
+                    preview.innerHTML += `<p> ${i} * ${index} = ${i * index} </p>`
+                }
+                preview.innerHTML += `<br>`
+            }
+        } else {
+            for (let i = startNumberValue; i >= endNumberValue; i--) {
+                preview.innerHTML += `<h1> Multiplication table for ${i}</h1>`
+                for (let index = 0; index < 13; index++) {
+                    preview.innerHTML += `<p> ${i} * ${index} = ${i * index} </p>`
+                }
+                preview.innerHTML += `<br>`
+            }
+
+
+        }
+
+
     }
 
 

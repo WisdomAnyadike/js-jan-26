@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <input type="text" id="inputTodo"> <button onclick="displayList()"> add todo </button>
+    <div id="preview">
+
+
+    </div>
+
+</body>
+
+</html>
+<script>
+    let database = []
+    let userOutput = document.getElementById('preview')
+    let userInput = document.getElementById('inputTodo')
+    function displayList() {
+        if (userInput.value.trim() === '') {
+            alert('Input cannot be empty')
+        } else {
+
+            database.push(userInput.value)
+            userInput.value = ''
+            displayTodos()
+            console.log(database);
+        }
+    }
+    //[ eat,  jump , sleep ]
+    function deleteTodo(i) {
+        // alert(`you clicked on delete , for index ${i}`)
+        let confirmDelete = confirm('are you sure')
+        if (confirmDelete === true) {
+            database.splice(i, 1)
+            console.log(database);
+            displayTodos()
+        }
+
+
+    }
+
+    let arr = [4, 6, 7, '8']
+    arr.splice(3, 1)
+
+
+    function displayTodos() {
+        userOutput.innerHTML = ''
+        for (let index = 0; index < database.length; index++) {
+            userOutput.innerHTML += `<p> ${database[index]} <button onclick="deleteTodo(${index})"> delete </button></p>`
+        }
+    }
+
+</script>

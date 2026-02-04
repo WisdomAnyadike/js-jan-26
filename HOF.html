@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // foreach map find findIndex filter every some reduce 
+    let arr = [1, 2, 3, 4, 5, 6]
+
+    for (let index = 0; index < arr.length; index++) {
+        console.log(arr[index], index, arr);
+    }
+
+
+    arr.forEach(function (num, index, array) {
+        console.log(num, index, array);
+        return 'wow'
+    })
+
+    function createNewArray() {
+        let newarr = arr.map((num, index, array) => {
+            console.log(num, index, array);
+            return index
+        }) // ['0,1,2,3,4,5'].join() 
+
+        return newarr.join() // '0,1,2,3,4,5'
+    }
+
+    let newSentence = 'i love ' + createNewArray() // '0,1,2,3,4,5'
+    console.log(newSentence);
+
+
+
+
+
+    function hmm(params) {
+        return 'hello'
+    }
+
+
+
+
+
+    // 1. Use map to create a new array by changing each number to square in the numbers array
+    const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+    //2. Use map to change to each name to uppercase in the names array
+    const names = ['Asabeneh', 'Mathias', 'Elias', 'Brook']
+
+    //example
+     let newarr = arr.map((num, index, array) => {
+            console.log(num, index, array);
+            return index
+        }) 
+
+
+</script>

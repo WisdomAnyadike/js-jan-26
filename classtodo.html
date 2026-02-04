@@ -53,8 +53,43 @@
     function displayTodos() {
         userOutput.innerHTML = ''
         for (let index = 0; index < database.length; index++) {
-            userOutput.innerHTML += `<p> ${database[index]} <button onclick="deleteTodo(${index})"> delete </button></p>`
+            userOutput.innerHTML += `<p> ${database[index]} <button onclick="deleteTodo(${index})"> x </button> <button onclick="editTodo(${index})"> edit </button></p>`
         }
     }
+
+
+    function editTodo(int) {
+      let promptValue = prompt('edit todo'  , database[int] ) //eat rice
+        if (promptValue !== null && promptValue.trim() !== '') {
+        database.splice(int , 1 , promptValue )
+        console.log(database);
+        displayTodos()
+        }
+       
+        
+        
+    }
+
+
+//    let myFunction =  function (params) {
+        
+//     }
+
+
+// function prompt(message , defaultText = '') {
+//      return 'vxbbx'
+// }
+
+
+
+    // function run(name) {
+    //     console.log(`${name} is running`);
+    // }
+
+    // run('wisdom')
+    // run('david')
+    // run('lara')
+
+
 
 </script>

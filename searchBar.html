@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input id="myInput" type="text" oninput="runSearch()">
+
+    <div id="preview">
+
+
+
+    </div>
+
+</body>
+
+</html>
+<script>
+    let products = ['rice', 'beans', 'garri', 'fish', 'eba']
+    let myInput = document.getElementById('myInput')
+    let displayDiv = document.getElementById('preview')
+
+
+    // [ '<p> rice </p>' , '<p> beans </p>' , ... ]
+   function displayProducts(productArr) {
+     preview.innerHTML = productArr.map((product, index, arr) => {
+        return `<p> ${product} </p>`
+    }).join('')
+   }
+
+   displayProducts(products)
+
+    function runSearch() {
+        let myInputsValue = myInput.value.trim() // b
+        console.log(myInputsValue);
+        let filteredProducts = products.filter((product, index, arr) => {
+            return product.includes(myInputsValue.toLowerCase())
+        }) // ['beans' , 'eba']
+
+        console.log(filteredProducts);
+        if (filteredProducts.length === 0) {
+            preview.innerHTML = 'no match found'
+            return
+        }
+
+       displayProducts(filteredProducts) // [ '<p> beans </p>' , `<p> eba </p>` ].join('') =   '<p> beans </p>''<p> eba </p>`
+
+    
+
+
+    }
+
+
+    let string = 'string'
+    let newArr = string.split('')
+
+    // let arr = [1,2,3,4,5]
+    // displayProducts(arr)
+
+</script>

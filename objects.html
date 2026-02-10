@@ -13,6 +13,11 @@
 
 </html>
 <script>
+
+
+
+
+
     let student = {
         name: 'lola',
         class: ['jss1'],
@@ -24,9 +29,124 @@
         maritalStatus: undefined,
         age: 35
     }
-    console.log(student.courses[2].level3[1] );
-    
 
-      
+
+    student.class = '2'
+    student.courses[2].level3[1] = 'php'
+
+    console.log(student);
+
+    let arr = [2, 4, 6, 6, 7]
+    console.log(arr);
+
+    arr[2] = 5
+    console.log(arr);
+
+    for (const val in student) {
+        console.log(`key:${val} - value:${student[val]}`);
+
+    }
+
+
+    let obj = {
+        name: 'david',
+        class: 'ss2'
+    }
+    console.log(obj.name, obj['name']);
+
+
+
+
+    let loggedInUserCount = 0
+    let loggedInUsers = []
+    let usersAbove50orEqualCount = 0
+    let usersAbove50orEqual = []
+
+    const users = {
+        Alex: {
+            email: 'alex@alex.com',
+            skills: ['HTML', 'CSS', 'JavaScript'],
+            age: 20,
+            isLoggedIn: false,
+            points: 30
+        },
+        Asab: {
+            email: 'asab@asab.com',
+            skills: ['HTML', 'CSS', 'JavaScript', 'Redux', 'MongoDB', 'Express', 'React', 'Node'],
+            age: 25,
+            isLoggedIn: false,
+            points: 50
+        },
+        Brook: {
+            email: 'daniel@daniel.com',
+            skills: ['HTML', 'CSS', 'JavaScript', 'React', 'Redux'],
+            age: 30,
+            isLoggedIn: true,
+            points: 50
+        },
+        Daniel: {
+            email: 'daniel@alex.com',
+            skills: ['HTML', 'CSS', 'JavaScript', 'Python'],
+            age: 20,
+            isLoggedIn: false,
+            points: 40
+        },
+        John: {
+            email: 'john@john.com',
+            skills: ['HTML', 'CSS', 'JavaScript', 'React', 'Redux', 'Node.js'],
+            age: 20,
+            isLoggedIn: true,
+            points: 50
+        },
+        Thomas: {
+            email: 'thomas@thomas.com',
+            skills: ['HTML', 'CSS', 'JavaScript', 'React'],
+            age: 20,
+            isLoggedIn: false,
+            points: 40
+        },
+        Paul: {
+            email: 'paul@paul.com',
+            skills: ['HTML', 'CSS', 'JavaScript', 'MongoDB', 'Express', 'React', 'Node'],
+            age: 20,
+            isLoggedIn: false,
+            points: 40
+        }
+    }
+
+
+    for (const key in users) {
+        console.log(key, users[key]);
+
+        if (users[key].isLoggedIn) {
+            loggedInUserCount++
+            loggedInUsers.push(key)
+        }
+
+        if (users[key].points >= 50) {
+            usersAbove50orEqualCount++
+            usersAbove50orEqual.push(key)
+        }
+
+
+
+    }
+
+    console.log(loggedInUserCount, loggedInUsers);
+    console.log(usersAbove50orEqualCount, usersAbove50orEqual);
+
+
+
+    users['wisdom'] = {
+        email: 'wisdom@wisdom.com',
+        skills: ['HTML', 'CSS', 'JavaScript', 'MongoDB', 'Express', 'React', 'Node'],
+        age: 20,
+        isLoggedIn: false,
+        points: 40
+    }
+
+    console.log(users);
+
+
 
 </script>

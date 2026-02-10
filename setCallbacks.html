@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button onclick="showSmth()" id="button"> click me </button>
+
+    <p id="preview"> </p>
+
+</body>
+
+</html>
+<script>
+
+    // setTimeout - helps to create delay in your functionality
+    // setTimeout(function () {
+    //     document.body.style.backgroundColor = 'green'
+    // }, 5000)
+
+    function showSmth() {
+        let button = document.getElementById('button')
+        button.innerHTML = 'loading...'
+        button.disabled = true
+
+        setTimeout(() => {
+            // preview.innerHTML = 'im done loading'
+            alert('ive loaded')
+            button.innerHTML = 'click me'
+            button.disabled = false
+
+        }, 3000)
+
+
+    }
+
+
+    function genRandomNumber(params) {
+        return Math.floor(Math.random() * 256)
+    }
+    function returnRgbColor(params) {
+        return `rgb(${genRandomNumber()},${genRandomNumber()},${genRandomNumber()})`
+    }
+
+    let counter = 5
+
+    // setInterval
+    let colorInterval = setInterval(() => {
+        // (() => { return `rgb(${r()},${r()},${r()})` })()
+        if (counter === 0) {
+            clearInterval(colorInterval)
+            return
+        }
+
+        document.body.style.backgroundColor = returnRgbColor()
+        counter--
+
+    }, 2000)
+
+
+
+</script>

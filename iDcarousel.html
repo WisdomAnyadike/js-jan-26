@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+            background-color: blue;
+        }
+
+        button {
+            background-color: transparent;
+            border: none;
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #idpattern {
+            background-color: #ffffff;
+            height: 400px;
+            width: 220px;
+            border-radius: 10px;
+            text-align: center;
+
+        }
+
+        #idpattern img {
+            margin: 10px 0 0 0;
+            width: 50px;
+            height: 50px;
+            background-color: transparent;
+
+        }
+
+        #studentInfo {
+            background-color: #ffffff;
+            text-align: center;
+        }
+
+        #studentInfo h3 {
+            background-color: transparent;
+            text-align: center;
+            color: blue;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+            margin: 10px 0 0 0;
+
+        }
+
+        #student {
+            text-align: center;
+            justify-content: center;
+            background-color: #ffffff;
+            margin: 0 0 0 64px;
+
+        }
+
+        #student p {
+
+            width: 85px;
+            height: 30px;
+            background-color: blue;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            margin: 10px 0 0 0;
+            padding: 7px 0;
+            border-radius: 3px;
+        }
+
+        #studentInfo img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: blue 2px solid;
+        }
+
+        #studentName {
+            color: blue;
+            background-color: #ffffff;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            margin: 10px 0 0 0;
+
+        }
+
+        #studentCourse {
+            color: rgb(243, 38, 38);
+            background-color: #ffffff;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            margin: 10px 0 0 0;
+
+        }
+
+        #studentID {
+            color: blue;
+            background-color: #ffffff;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            margin: 10px 0 0 0;
+
+        }
+
+        #studentID span {
+            color: blue;
+            background-color: #ffffff;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            margin: 10px 0 0 0;
+
+        }
+
+        #webLink {
+            color: #ffffff;
+            background-color: blue;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            margin: 20px 0 0 0;
+            padding: 3px 0 3px 0;
+
+        }
+    </style>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+
+    let idCardData = [
+        {
+            image: 'img-one.png',
+            name: 'Ayanyemi Adedapo Tolulope',
+            program: 'Software Engineering',
+            idNum: '203022',
+
+        },
+        {
+            image: 'img-two.png',
+            name: 'Ogenneh Tega',
+            program: 'Data Science',
+            idNum: '211092',
+
+        },
+        {
+            image: 'img-three.png',
+            name: 'Femi Odga',
+            program: 'Cyber Security',
+            idNum: '222200',
+
+        },
+        {
+            image: 'img-fourr.png',
+            name: 'Oduwole Uduak',
+            program: 'Data Analysis',
+            idNum: '210986',
+
+        },
+        {
+            image: 'img-five.png',
+            name: 'Hannah Magaret',
+            program: 'Product Design',
+            idNum: '211211',
+
+        },
+
+    ]
+
+    let index = 0
+
+
+    function displayCard() {
+        document.body.innerHTML = `<main>
+        <button onclick="prev()"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#ffffff"><path d="M400-80 0-480l400-400 71 71-329 329 329 329-71 71Z"/></svg></button>
+        <div id="idpattern">
+            <img src="sqi.png" alt="">
+            <div id="studentInfo">
+                <h3>SQI COLLEGE OF ICT IBADAN</h3>
+                <div id="student"><p>STUDENT</p></div>
+                <img src="${idCardData[index].image}" alt="" id="studentImg">
+                <h4 id="studentName"> ${idCardData[index].name} </h4>
+                <h4 id="studentCourse"> ${idCardData[index].program} </h4>
+                <p id="studentID">Student ID | <span id="studentIDNum">  ${idCardData[index].idNum}  </span></p>
+                <div id="webLink">edu . sqi . ng</div>
+
+            </div>
+        </div>
+        <button onclick="next()"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#ffffff"><path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z"/></svg></button>
+    </main>`
+
+    }
+
+    displayCard()
+
+
+    function next() {
+        if (index === idCardData.length - 1) {
+            index = 0
+        } else {
+            index++
+        }
+        displayCard()
+    }
+
+
+    function prev(params) {
+        if (index === 0) {
+            index = idCardData.length - 1
+        } else {
+            index--
+        }
+        displayCard()
+    }
+
+
+    let interval = setInterval( next() , 
+    5000)
+
+
+
+
+</script>

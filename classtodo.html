@@ -19,17 +19,21 @@
 
 </html>
 <script>
-    let database = []
+    let database =  JSON.parse(localStorage.getItem('Todos'))  || []
     let userOutput = document.getElementById('preview')
     let userInput = document.getElementById('inputTodo')
+
+    displayTodos()
+
+
     function displayList() {
         if (userInput.value.trim() === '') {
             alert('Input cannot be empty')
         } else {
 
-            database.push(userInput.value)
-            userInput.value = ''
-            displayTodos()
+            database.push(userInput.value) // 'eat'
+          saveAndDisplayTodos()
+               userInput.value = ''
             console.log(database);
         }
     }
@@ -39,8 +43,7 @@
         let confirmDelete = confirm('are you sure')
         if (confirmDelete === true) {
             database.splice(i, 1)
-            console.log(database);
-            displayTodos()
+           saveAndDisplayTodos()
         }
 
 
@@ -59,26 +62,28 @@
 
 
     function editTodo(int) {
-      let promptValue = prompt('edit todo'  , database[int] ) //eat rice
+        let promptValue = prompt('edit todo', database[int]) //eat rice
         if (promptValue !== null && promptValue.trim() !== '') {
-        database.splice(int , 1 , promptValue )
-        console.log(database);
-        displayTodos()
+            database.splice(int, 1, promptValue)
+             saveAndDisplayTodos()
         }
-       
-        
-        
     }
 
 
-//    let myFunction =  function (params) {
-        
-//     }
+       function saveAndDisplayTodos(params) {
+          localStorage.setItem('Todos' , JSON.stringify(database))
+            displayTodos()
+    }
 
 
-// function prompt(message , defaultText = '') {
-//      return 'vxbbx'
-// }
+    //    let myFunction =  function (params) {
+
+    //     }
+
+
+    // function prompt(message , defaultText = '') {
+    //      return 'vxbbx'
+    // }
 
 
 
@@ -89,6 +94,31 @@
     // run('wisdom')
     // run('david')
     // run('lara')
+
+
+    // local storage 
+    //setitem method
+    // localStorage.setItem('name', JSON.stringify({ name: 'wisdom' }))
+
+    // localStorage.setItem('number', 345)
+    // let myNumber = localStorage.getItem('number')
+    // console.log(myNumber, typeof myNumber);
+
+// removeitem method
+    // localStorage.removeItem('name')
+    
+    // getitem method
+    // let value = localStorage.getItem('name') // {name: 'wisdom'}
+    // console.log(typeof JSON.parse(value), JSON.parse(value));
+
+    // clear method
+    // localStorage.clear()
+
+    // console.log(value);
+
+
+
+
 
 
 

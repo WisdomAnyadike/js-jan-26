@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,
+        th,
+        td,
+        tr,
+        thead,
+        tbody {
+            border-collapse: collapse;
+            padding: 15px;
+            border: 1px solid rebeccapurple;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <select name="" id="provider">
+            <option value=""> choose provider</option>
+            <option value="mtn"> mtn</option>
+            <option value="glo"> glo</option>
+            <option value="9mobile"> 9mobile</option>
+            <option value="airtel"> airtel </option>
+        </select>
+    </div>
+
+    <div>
+        <select name="" id="amount">
+            <option value=""> choose amount</option>
+            <option value="100"> 100</option>
+            <option value="200"> 200 </option>
+            <option value="500"> 500</option>
+            <option value="1000"> 1000 </option>
+        </select>
+    </div>
+
+    <button onclick="generate()"> Generate </button>
+    <h1> pin: <span id="span"> </span></h1>
+
+
+    <div>
+        <p>load airtime</p>
+        <input id="input" type="text"> <button onclick="load()"> load </button>
+    </div>
+
+
+    <table>
+        <thead>
+            <th> s/n </th>
+            <th> provider </th>
+            <th>amount </th>
+            <th> pin </th>
+            <th>isUsed </th>
+        </thead>
+        <tbody id="tbody">
+
+
+
+
+
+        </tbody>
+
+
+    </table>
+
+
+</body>
+
+</html>
+<script>
+
+    let inputValue = document.getElementById('input')
+    let networkProvider = document.getElementById('provider')
+    let amount = document.getElementById('amount')
+    let span = document.getElementById('span');
+    let generatedCards = [];
+
+
+    function generate() {
+        console.log(networkProvider.value);
+        console.log(amount.value);
+
+
+        if (networkProvider.value === '' || amount.value === '') {
+            alert('cannot generate pin. Pick a network provider or amount')
+        }
+        else {
+            let pin = ''
+            // let pin = Math.floor(1e11 +(Math.random() * 9e11))
+            // console.log(,pin, pin.toString().length);
+            for (let index = 0; index < 12; index++) {
+                pin += Math.floor(Math.random() * 10)
+            }
+            span.innerHTML = pin
+
+            // let newArr = new Array(12).fill('0')
+            // console.log(newArr);
+
+            // newArr.forEach(() => {
+            //     pin += Math.floor(Math.random() * 10)
+            // });
+            // console.log(pin, pin.length);
+
+            let card = {
+                network: networkProvider.value,
+                amount: amount.value,
+                pin,
+                isUsed: false
+            }
+            generatedCards.push(card)
+
+
+
+
+
+            tbody.innerHTML = ''
+            // let num = 1 // [card , card , card]
+            generatedCards.forEach((cardObj, index) => {
+                tbody.innerHTML += ` <tr>
+                    <td> ${index + 1}</td>  
+                <td> ${cardObj.network} </td>  
+                 <td> ${cardObj.amount}</td> 
+                   <td> ${cardObj.pin}</td>  
+                    <td> ${cardObj.isUsed} </td>
+            </tr> `
+
+                // num++
+            })
+
+        }
+
+    }
+
+    function load() {
+        //*311*234567876545#
+        let inputValue = input.value.trim()
+        let cardPin = inputValue.slice(5, 17)
+
+        let foundCard = generatedCards.find((cardObj) => {
+            return cardObj.pin === cardPin
+        }
+
+
+
+        )
+        if (inputValue === '') {
+            alert('This field is mandatory')
+            return
+        }
+        if (!inputValue.startsWith('*311*') || !inputValue.endsWith('#') || inputValue.length !== 18 || isNaN(cardPin)) {
+            alert('invalid format')
+            return
+        }
+        if (condition) {
+
+        }
+
+    }
+
+
+
+
+
+</script>

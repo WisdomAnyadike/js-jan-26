@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #image {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <p> </p>
+    <button id="hello" ondblclick="doSmthElse()" class="clickbutton"> click </button>
+    <i></i>
+
+    <input type="text" onfocus="runFunction(event)">
+
+    <input id="file" type="file" onchange="pickPicture(event)">
+    <img id="image" width="100" height="100" alt="">
+</body>
+
+</html>
+<script>
+    //Event Argument and the types of events 
+    let myButton = document.getElementById('hello')
+    //  onclick="addParagraph(event)
+
+    myButton.addEventListener('click', function (e) {
+        alert(' js choke o')
+        e.target.parentElement.style.backgroundColor = 'red'
+    })
+
+    myButton.addEventListener('mouseover', function (h) {
+        h.target.parentElement.style.backgroundColor = 'purple'
+    })
+
+    function addParagraph(ev) {
+        let button1 = document.getElementById('hello')
+        let button2 = ev.target
+        console.log(ev, button1, button2);
+        ev.target.nextElementSibling.innerHTML = 'hmmmm'
+        ev.target.parentElement.style.backgroundColor = 'blue'
+
+    }
+
+    function doSmthElse(params) {
+        document.body.innerHTML += '<h1> i just came here </h1>'
+    }
+
+    function changeColor(params) {
+        document.body.style.backgroundColor = 'yellow'
+    }
+
+
+    function runFunction(e) {
+        console.log(e);
+        // let input = document.getElementById('input')
+        e.target.value = 'you just tapped on this input'
+        e.target.previousElementSibling.previousElementSibling.style.backgroundColor = 'green'
+        e.target.previousElementSibling.previousElementSibling.style.color = 'white'
+        // console.log(e.target.previousElementSibling);
+
+    }
+
+
+
+
+
+
+
+
+
+    // input type file
+
+    function pickPicture(e) {
+        let myFileElementTag = document.getElementById('file')
+        let file = myFileElementTag.files[0]
+
+        // let file = e.target.files[0]
+        console.log(e.target.files);
+        // if (file.size / 1000 > 50) {
+        //     alert('file too large')
+        //     return
+        // }
+
+
+        // if (file.name !== 'resume.png') {
+        //     alert('please rename file to resume')
+        //     return
+        // }
+
+        let reader = new FileReader()
+
+        if (!file) {
+            alert('please add a file')
+        }
+
+        reader.readAsDataURL(file)
+
+        reader.addEventListener('load', (e) => {
+            let imageSrc = e.target.result
+            image.style.display = 'block'
+            image.src = imageSrc
+        })
+
+    }
+
+
+
+
+</script>

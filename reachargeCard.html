@@ -117,13 +117,13 @@
 
             tbody.innerHTML = ''
             // let num = 1 // [card , card , card]
-            generatedCards.forEach((cardObj, index) => {
+            generatedCards.forEach(({ isUsed, network, pin, amount }, index) => {
                 tbody.innerHTML += ` <tr>
                     <td> ${index + 1}</td>  
-                <td> ${cardObj.network} </td>  
-                 <td> ${cardObj.amount}</td> 
-                   <td> ${cardObj.pin}</td>  
-                    <td> ${cardObj.isUsed} </td>
+                <td> ${network} </td>  
+                 <td> ${amount}</td> 
+                   <td> ${pin}</td>  
+                    <td> ${isUsed} </td>
             </tr> `
 
                 // num++

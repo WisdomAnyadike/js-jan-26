@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: green;
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+
+    let arr = [1, 2, 3, 4, 5]
+    let [, , thirdVal] = arr
+
+    // console.log(sixthVal);
+    // console.log(secondVal);
+
+
+    const fullStack = [
+        ['HTML', 'CSS', 'JS', 'React'],
+        ['Node', 'Express', 'MongoDB']
+    ]
+
+    // const [[firstStack, secondStack, thirdStack, forthStack] = frontEnd, [firstBackendStack, secondBackendStack, thirdBackendStack] = backEnd] = fullStack
+
+    let [frontEnd, backEnd] = fullStack
+    let [firstStack, secondStack, thirdStack, forthStack] = frontEnd
+    let [firstBackendStack, secondBackendStack, thirdBackendStack] = backEnd
+
+
+    console.log(backEnd, frontEnd, secondBackendStack);
+
+
+
+    const names = [undefined, 'Brook', 'David']
+    let [
+        firstPerson = 'Asabeneh',
+        secondPerson,
+        thirdPerson,
+        fourthPerson = 'John'
+    ] = names
+
+    //   firstPerson = 'sbsm'
+
+    console.log(firstPerson);
+
+    firstPerson = 'angela'
+    console.log(firstPerson);
+
+
+
+    console.log(firstPerson, secondPerson, thirdPerson, fourthPerson)
+    console.log(names);
+
+
+    let fruits = ['cherry', 'apple', 'grape', 'watermelon']
+    let vegetables = ['carrot', 'lettuce', 'cucumber', 'cabbage']
+    let [, ...seperatedFruitArr] = fruits
+
+    console.log(seperatedFruitArr);
+    let fruitsAndVegetables = [...fruits, 'mango', ...vegetables, 'pumpkin']
+    console.log(fruitsAndVegetables);
+
+
+
+
+
+    let myValArr = [2, 23, 100, 4, 1, 5, 6]
+
+    let newValArr = [...myValArr]// 2,3,4,5,6
+
+    myValArr.sort((a, b) => a - b)
+    console.log(myValArr);
+    console.log(myValArr[0], myValArr[myValArr.length - 1]);
+
+
+    let minValue = Math.min(...myValArr)
+    let maxValue = Math.max(...myValArr)
+    console.log(minValue, maxValue);
+
+
+
+    const countries = [['Finland', 'Helsinki'], ['Sweden', 'Stockholm'], ['Norway', 'Oslo']]
+
+    for (let index = 0; index < countries.length; index++) {
+        let [firstValue, secondValue] = countries[index]
+        console.log(firstValue, secondValue);
+    }
+
+
+    for (const [firstValue, secondValue] of countries) {
+        console.log(firstValue, secondValue);
+    }
+
+    countries.forEach(([firstValue, secondValue], index, arr) => {
+        console.log(firstValue, secondValue);
+
+    })
+
+    // destructing for objects
+
+    let student = {
+        name: "tijani",
+        class: 'react',
+        level: 3,
+        age: 23
+    }
+
+    student.course = 'javascript'
+
+    let { level: l, name, course = 'software enjineering' } = student
+    // student.level
+    console.log(l, name, course);
+
+
+    let rectangle1 = {
+        length: 230,
+        breadth: 40,
+        area: 683
+    }
+
+    let rectangle2 = {
+        length: 30,
+        breadth: 4
+    }
+
+
+    let rectangle3 = { ...rectangle2, breadth: 45, age: '683' }
+
+    function calculatePerimeter({ length, breadth }) {
+        let perimeter = 2 * (length + breadth)
+        return perimeter
+    }
+
+    console.log(calculatePerimeter(rectangle1));
+    console.log(calculatePerimeter(rectangle2));
+    console.log(calculatePerimeter(rectangle3));
+
+
+    const todoList = [
+        {
+            task: 'Prepare JS Test',
+            time: '4/1/2020 8:30',
+            completed: true
+        },
+        {
+            task: 'Give JS Test',
+            time: '4/1/2020 10:00',
+            completed: false
+        },
+        {
+            task: 'Assess Test Result',
+            time: '4/1/2020 1:00',
+            completed: false
+        }
+    ]
+
+
+    for (const { time, task, completed } of todoList) {
+        console.log(time, task, completed);
+
+    }
+
+
+
+    const user = {
+        name: 'Asabeneh',
+        title: 'Programmer',
+        country: 'Finland',
+        city: 'Helsinki'
+    }
+
+    const copiedUser = { ...user, title: 'instructor' }
+    delete copiedUser.title
+
+    console.log(copiedUser);
+
+
+    console.log(copiedUser)
+
+
+    const students = [
+        ['David', ['HTM', 'CSS', 'JS', 'React'], [98, 85, 90, 95]],
+        ['John', ['HTM', 'CSS', 'JS', 'React'], [85, 80, 85, 80]]
+    ]
+
+
+    console.log(eval('363+672-37829/73892*337'));
+
+
+    // let johnsTotalScore = students[1][2].reduce((a, b) => {
+    //     return a + b
+    // }, 0)
+
+    let johnsTotalScore = eval(students[1][2].join('+'))
+    console.log(johnsTotalScore);
+
+
+
+</script>

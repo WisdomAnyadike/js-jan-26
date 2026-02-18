@@ -8,9 +8,35 @@
 </head>
 
 <body>
+    <p id="forName"> loading....</p>
+    <input type="text">
+    <input type="text">
+    <input type="file" value="">
+    <img src="" alt="">
+    <button>post </button>
 
     this is my dashboard
-    
+
+    <div id="preview">
+
+    </div>
+
 </body>
 
+
+
 </html>
+<script>
+    let userDatabase = JSON.parse(localStorage.getItem('userDatabaseJanuary')) || []
+    let currentUserIndex = localStorage.getItem('currentUserIndex')
+    console.log(currentUserIndex);
+
+    let currentUser = userDatabase[currentUserIndex]
+    forName.innerHTML = `welcome ${currentUser.username}`
+
+
+    // let users = [{} , {} , {}]
+    // let index = 2
+    // users[2]
+
+</script>

@@ -5,18 +5,111 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
-    <button onclick="move()"> move to dashbaord </button>
+    <div class="container">
+        <div class="card">
+            <div class="card_title">
+                <h1>Create Account</h1>
+                <span>Already have an account? <a href="login.html">Sign In</a></span>
+            </div>
+            <div class="form">
+                <form>
+                    <input type="text" name="username" id="username" placeholder="Username" />
+                    <input type="email" name="email" placeholder="Email" id="email" />
+                    <input type="password" name="password" placeholder="Password" id="password" />
+                    <input type="password" name="confirmpassword" placeholder="Confirm Password" id="confirmpassword" />
+                    <button type="button" onclick="signUpUser()" id="button"> Sign Up </button>
+                </form>
+            </div>
+            <div class="card_terms">
+                <input type="checkbox" name="" id="terms"> <span>I have read and agree to the <a href="">Terms of
+                        Service</a></span>
+            </div>
+        </div>
+    </div>
 
 </body>
 
 </html>
 <script>
+    let userDatabase = JSON.parse(localStorage.getItem('userDatabaseJanuary')) || []
 
-    function move(params) {
-        window.location.href = 'dashboard.html'
+    console.log(userDatabase);
+
+    function signUpUser() {
+
+        // setTimeout(() => {
+        //     doSignUp()
+        //     button.innerHTML = 'Sign Up'
+        //     button.disabled = false
+        // }, 3000)
+
+
+        let username = document.getElementById('username').value.trim() // david
+        let email = document.getElementById('email').value.trim().toLowerCase() // heritage@gmail.com
+        let password = document.getElementById('password').value.trim() // wisdom123
+        let confirmpassword = document.getElementById('confirmpassword').value.trim() // wisdom123
+        let checkbox = document.getElementById('terms')
+        let foundUser = userDatabase.find((user) => { return user.email === email })
+        // let foundUser =  {
+        //  name: 'heritage',
+        //     email: 'heritage@gmail.com'
+        //    }
+        console.log(checkbox.checked);
+
+
+
+        if (!username || !email || !password || !confirmpassword) {
+            alert('all fields are mandatory')
+
+        } else if (password.length <= 7) {
+            alert('password must be at least 8 characters ')
+        } else if (password !== confirmpassword) {
+            alert('password does not match')
+        }
+        else if (checkbox.checked === false) {
+            alert('agree to terms and conditions')
+        }
+        else if (foundUser) {
+            alert('this email is already in use')
+        }
+
+        else {
+            button.innerHTML = 'loading...'
+            button.disabled = true
+            setTimeout(() => {
+
+                let user = {
+                    username,
+                    email,
+                    password
+                }
+                userDatabase.push(user)
+                localStorage.setItem('userDatabaseJanuary', JSON.stringify(userDatabase))
+                console.log(userDatabase);
+                alert('Sign Up successful')
+                button.innerHTML = 'Sign Up'
+                clearForm()
+                window.location.href = 'login.html'
+                button.disabled = false
+            }, 3000
+            )
+
+
+        }
+
+    }
+
+
+    function clearForm() {
+        document.getElementById('email').value = ''
+        document.getElementById('password').value = ''
+        document.getElementById('username').value = ''
+        document.getElementById('confirmpassword').value = ''
+        document.getElementById('terms').checked = false
     }
 
 </script>

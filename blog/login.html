@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card_title">
+                <h1> Log in to your Account</h1>
+                <span> Dont have an account? <a href="index.html">Sign Up</a></span>
+            </div>
+            <div class="form">
+                <form>
+
+                    <input type="email" name="email" placeholder="Email" id="email" />
+                    <input type="password" name="password" placeholder="Password" id="password" />
+
+                    <button type="button" onclick="logInUser()" id="button"> Log In </button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
+<script>
+    let userDatabase = JSON.parse(localStorage.getItem('userDatabaseJanuary')) || []
+    function logInUser(params) {
+        let email = document.getElementById('email').value.trim().toLowerCase()
+        let password = document.getElementById('password').value.trim()
+        let foundUser = userDatabase.find((user) => { return user.email === email })
+
+        if (foundUser) {
+            if (foundUser.password === password) {
+                window.location.href = 'dashboard.html'
+                let foundUserIndex = userDatabase.findIndex((user) => user.email === email)
+                localStorage.setItem('currentUserIndex', foundUserIndex)
+                alert('login successful')
+            } else {
+                alert('incorrect password!!')
+            }
+        } else {
+            alert('user not found ')
+
+        }
+
+
+        //    if (!foundUser) {
+        //      alert('user not found ')
+        // } else {
+        //  if (foundUser.password === password) {
+        //         window.location.href = 'dashboard.html'
+        //     } else {
+        //         alert('incorrect password!!')
+        //     }
+        //   
+        // }
+    }
+
+
+    let userDatabase1 = [
+        {
+            name: 'wisdom',
+            email: 'wisdom@gmail.com',
+            password: 'wisdom123'
+
+        }
+        ,
+        {
+            name: 'heritage',
+            email: 'heritage@gmail.com',
+            password: 'heritage123'
+
+        }
+        ,
+        {
+            name: 'david',
+            email: 'david@gmail.com',
+            password: 'david123'
+
+        }
+    ]
+
+
+    email = 'david@gmail.com'
+    password = 'tolulope123'
+
+</script>

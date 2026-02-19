@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="api.css">
+</head>
+
+<body>
+
+    <div id="container">
+
+
+
+
+
+    </div>
+
+
+
+</body>
+
+</html>
+<script>
+    // api requests - get , post , put , patch , delete
+    // operations - CRUD
+    // three tier atchitechture - client - server - database 
+
+    // first method of making request in js
+    fetch('https://dummyjson.com/products').then((res) => { return res.json() }).then((data) => {
+        console.log(data.products);
+    }).catch((err) => console.log(err))
+
+    // second method 
+    async function fetchProducts() {
+        try {
+            container.innerHTML = '<h1 style="color:white;"> loading... </h1>'
+            let res = await fetch('https://dummyjson.com/products')
+            let data = await res.json()
+            console.log(data.products);
+            container.innerHTML = ''
+            container.style.backgroundColor = 'black'
+            data.products.forEach(({ thumbnail, price, title } = product, i, arr) => {
+                container.innerHTML += `    <div class="card">
+
+            <div class="imgBox">
+                <img src="${thumbnail}"
+                    alt="mouse corsair" class="mouse">
+            </div>
+
+            <div class="contentBox">
+                <h3>${title}</h3>
+                <h2 class="price">${price.toString().split('.')[0]}.<small>${price.toString().split('.')[1]} </small> N </h2>
+                <a href="#" onclick="seeMore(${i})" class="buy"> see more </a>
+            </div>
+
+
+
+
+        </div>
+`
+            });
+
+
+
+
+
+        } catch (err) {
+            console.log(err);
+
+        }
+    }
+
+
+    fetchProducts()
+
+
+
+    // price.toString().split('.')[0]
+
+
+    // '10.34' = ['10', '34']
+
+
+    // understanding using slice 
+    let string = '10.45'
+    let newr = '234536.67'
+    let newb = '6.67'
+
+    console.log(string.slice(string.length - 2))
+    console.log(newr.slice(newr.length - 2));
+    console.log(newb.slice(newb.length - 2));
+
+
+    console.log(string.slice(0, string.length - 2))
+    console.log(newr.slice(0, newr.length - 2))
+
+
+
+    function seeMore(index) {
+        console.log(`the index is ${index}`)
+        fetch(`https://dummyjson.com/products/${index + 1}`).then((res) => res.json()).then(({ title, images }) => {
+
+            container.style.backgroundColor = 'white'
+
+            let pictures = images.map((image) => {
+                return ` <div class="img-item" >
+                                        <a href="#" data-id="4">
+                                            <img width='250px' height='100px' src="${image}"
+                                                alt="shoe image">
+                                        </a>
+                                    </div>`
+            })
+            console.log(pictures);
+
+
+            container.innerHTML = `<div class="mycard-wrapper">
+                        <div class="mycard">
+            <!-- mycard left -->
+                            <div class="product-imgs">
+                                <div class="img-display">
+                                    <div class="img-showcase">
+                                    <img src="${images[0]}"alt="shoe image">
+                                    </div>
+                                </div>
+                                <div class="img-select">
+                                    ${pictures.splice(1, pictures.length - 1).join('')}
+                                </div>
+                            </div>
+                            <!-- mycard right -->
+                            <div class="product-content">
+                                <h2 class="product-title">${title}</h2>
+                                <a href="#" class="product-link">visit nike store</a>
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                    <span>4.7(21)</span>
+                                </div>
+
+                                <div class="product-price">
+                                    <p class="last-price">Old Price: <span>$257.00</span></p>
+                                    <p class="new-price">New Price: <span>$249.00 (5%)</span></p>
+                                </div>
+
+                                <div class="product-detail">
+                                    <h2>about this item: </h2>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo eveniet veniam tempora fuga tenetur
+                                        placeat sapiente architecto illum soluta consequuntur, aspernatur quidem at sequi ipsa!</p>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, perferendis eius.
+                                        Dignissimos, labore suscipit. Unde.</p>
+                                    <ul>
+                                        <li>Color: <span>Black</span></li>
+                                        <li>Available: <span>in stock</span></li>
+                                        <li>Category: <span>Shoes</span></li>
+                                        <li>Shipping Area: <span>All over the world</span></li>
+                                        <li>Shipping Fee: <span>Free</span></li>
+                                    </ul>
+                                </div>
+
+                                <div class="purchase-info">
+                                    <input type="number" min="0" value="1">
+                                        <button type="button" class="btn">
+                                            Add to Cart <i class="fas fa-shopping-cart"></i>
+                                        </button>
+                                        <button type="button" onclick="fetchProducts()" class="btn"> Back to products </button>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>`
+
+
+        }).catch((err) => alert(err))
+
+
+    }
+
+
+    // seeMore('david', 7)
+    // seeMore('wisdom', 10)
+
+
+
+    let arr = ['https:forfirst', 'https:forsecond']
+
+    let newArr = arr.map((image) => {
+        return `<img src="${image}" /> `
+    })
+
+    //  '<img src="https:forfirst"/> <img src="https:forsecond"/>'
+
+</script>

@@ -34,10 +34,10 @@
 <script>
     let userDatabase = JSON.parse(localStorage.getItem('userDatabaseJanuary')) || []
     function logInUser(params) {
-        let email = document.getElementById('email').value.trim().toLowerCase()
-        let password = document.getElementById('password').value.trim()
-        let foundUser = userDatabase.find((user) => { return user.email === email })
-
+        let email = document.getElementById('email').value.trim().toLowerCase() // wisdom@gmail.com
+        let password = document.getElementById('password').value.trim() // davido123
+        let foundUser = userDatabase.find((user) => { return user.email === email && user.password === password })
+ 
         if (foundUser) {
             if (foundUser.password === password) {
                 window.location.href = 'dashboard.html'
@@ -68,7 +68,7 @@
 
     let userDatabase1 = [
         {
-            name: 'wisdom',
+            username: 'wisdom',
             email: 'wisdom@gmail.com',
             password: 'wisdom123'
 

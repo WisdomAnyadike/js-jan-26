@@ -36,7 +36,7 @@
     function logInUser(params) {
         let email = document.getElementById('email').value.trim().toLowerCase() // wisdom@gmail.com
         let password = document.getElementById('password').value.trim() // davido123
-        let foundUser = userDatabase.find((user) => { return user.email === email && user.password === password })
+        let foundUser = userDatabase.find((user) => { return user.email === email })
  
         if (foundUser) {
             if (foundUser.password === password) {

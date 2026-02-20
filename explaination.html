@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // setItem , getItem , clear , removeItem
+
+    localStorage.setItem('myUsersName', JSON.stringify({ name: 'wisdom' }))
+
+    console.log(JSON.parse(localStorage.getItem('myUserName')), typeof JSON.parse(localStorage.getItem('myUserName')));
+
+
+
+    for (let index = 5; index > 0; index--) {
+
+
+    }
+
+    let fruits = ['mango', 'cherry', 'apple']
+
+    let capitalizedFruits = []
+    for (const fruit of fruits) {
+        // capitalizedFruits.push(fruit.toUpperCase())
+        // console.log('hello');
+        console.log('i happened twice');
+
+        if (fruit === 'cherry') {
+            break
+        }
+
+        console.log('i happened once ');
+
+    }
+
+
+    let namesArr = [['tolu' , 'dan'], ['daniel' , 'feyi'], ['david' , 'tola'], ['fola' , 'isreal']]
+
+    function find(name) {
+        for (const value of namesArr) {
+            if (value === name) {
+                return value
+            }
+        }
+    }
+
+    console.log(find('dave'));
+
+
+    let foundUser = undefined
+    for (let index = 0; index < namesArr.length; index++) {
+        if (namesArr[index] === 'david') {
+            foundUser = namesArr[index]
+            break
+        }
+    }
+
+    let userToBeFound = namesArr.find((name, i, arr) => {
+        console.log(i);
+        
+        return name[0] === 'david'
+    })
+
+
+
+
+</script>

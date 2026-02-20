@@ -85,7 +85,8 @@
                 let user = {
                     username,
                     email,
-                    password
+                    password ,
+                    blogs : []
                 }
                 userDatabase.push(user)
                 localStorage.setItem('userDatabaseJanuary', JSON.stringify(userDatabase))

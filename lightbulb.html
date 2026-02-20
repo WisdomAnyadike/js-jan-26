@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <img width="50px" height="50px" id="image" alt="">
+    <br>
+    <button onclick="toogleLight(event)"> turn on </button>
+
+</body>
+
+</html>
+<script>
+
+    let bulbOnImage = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZk4wBmh3sg6wkSoMtWXEP4-yM42HVgdaulg&s'
+    let bulbOffImage = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCkDLzvwabraI2xMsq_QFKy9u2iOAbOmaxfA&s'
+
+    let image = document.getElementById('image')
+    image.src = bulbOffImage
+    // let isBulbOn = false
+
+
+    function toogleLight(e) {
+        console.log(e.target);
+        // if (image.src === bulbOffImage) {
+        //     image.src = bulbOnImage
+        //     e.target.innerHTML = 'turn off'
+        // } else {
+        //     image.src = bulbOffImage
+        //     e.target.innerHTML = 'turn on'
+        // }
+
+        image.src === bulbOffImage ? (image.src = bulbOnImage , e.target.innerHTML = 'turn off')  : (image.src = bulbOffImage , e.target.innerHTML = 'turn on')
+      
+
+
+    }
+
+
+
+
+</script>

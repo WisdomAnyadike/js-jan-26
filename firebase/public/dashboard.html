@@ -7,12 +7,46 @@
     <title>Document</title>
     <script src="https://www.gstatic.com/firebasejs/12.9.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/12.9.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/12.9.0/firebase-database-compat.js"></script>
+    <link rel="stylesheet" href="./css/dashboard.css">
 </head>
 
 <body>
-    <h1> Welcome <span id="forUserName"> loading... </span> </h1>
 
-    <button onclick="logUserOut()">log out </button>
+    <div class="section_chatbox">
+        <header class="chatbox_header">
+            <h1> Welcome <span id="forUserName"> loading... </span>    <button onclick="logUserOut()">log out </button> </h1>
+        </header>
+        <div class="messanger_main_chat">
+            <!-- <div class="left_message user_chat">
+                <div class="user_image"
+                    style="background-image: url(https://res.cloudinary.com/dc6deairt/image/upload/v1638102932/user-32-01_pfck4u.jpg)">
+                </div>
+
+                <div class="message_bubble">
+                    <div class="user_info">
+                        <div class="user_info_name">ROY</div>
+                        <div class="user_info_time"></div>
+                    </div>
+
+                    <div class="user_original_message">
+                        Hi, I am Roy .How can i help you?
+                    </div>
+                    
+                </div>
+            </div> -->
+
+          
+            
+        </div>
+        <form class="messanger_inputarea">
+            <input type="text" class="messanger_input" placeholder="Message">
+            <button type="button" onclick="sendMessage()" class="messanger_send_btn">Send</button>
+        </form>
+    </div>
+
+
+ 
 </body>
 
 </html>

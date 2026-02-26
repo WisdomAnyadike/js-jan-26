@@ -32,7 +32,7 @@ function logInUser(params) {
             // Signed in
             var user = userCredential.user;
             alert('login successful')
-            window.location.href = '../public/dashboard.html'
+            window.location.href = './dashboard.html'
 
             // ...
         })

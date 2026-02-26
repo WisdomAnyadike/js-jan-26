@@ -118,6 +118,10 @@ html {
     cursor: pointer;
 }
 
+.form #googleButton{
+   width: fit-content; 
+}
+
 .form input[type="button"]:hover,
 .form input[type="button"]:focus {
     background-color: #2991CF;

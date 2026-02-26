@@ -12,7 +12,9 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
+var provider = new firebase.auth.GoogleAuthProvider();
 const app = firebase.initializeApp(firebaseConfig);
+
 console.log(app);
 
 const auth = firebase.auth();
@@ -41,11 +43,11 @@ function signUpUser() {
                     displayName: username
                 }).then(() => {
                     alert('sign up successful')
-                    window.location.href = '../public/login.html'
+                    window.location.href = './login.html'
                     showLoadingandDisable('sign up', false)
                 }).catch((error) => {
                     alert('sign up successful , failed to udpate username')
-                    window.location.href = '../public/login.html'
+                    window.location.href = './login.html'
                     showLoadingandDisable('sign up', false)
                 });
 
@@ -67,6 +69,37 @@ function showLoadingandDisable(text, isloading) {
     // isloading ? myButton.style.backgroundColor = 'blue' : myButton.style.backgroundColor = 'yellow'
     myButton.disabled = isloading
 }
+
+
+function signInWithGoogle() {
+    firebase.auth()
+        .signInWithPopup(provider)
+        .then((result) => {
+            /** @type {firebase.auth.OAuthCredential} */
+            var credential = result.credential;
+
+            // This gives you a Google Access Token. You can use it to access the Google API.
+            var token = credential.accessToken;
+            // The signed-in user info.
+            var user = result.user;
+            alert('sign in successful')
+            window.location.href = 'dashboard.html'
+            // IdP data available in result.additionalUserInfo.profile.
+            // ...
+        }).catch((error) => {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            // The email of the user's account used.
+            var email = error.email;
+            // The firebase.auth.AuthCredential type that was used.
+            var credential = error.credential;
+            // ...
+        });
+}
+
+
+
 
 
 // let firebase = {

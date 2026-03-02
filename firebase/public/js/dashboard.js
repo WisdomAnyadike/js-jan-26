@@ -72,10 +72,18 @@ function sendMessage(params) {
         return
     }
 
+    if (!auth.currentUser.displayName) {
+        alert('please go to settings and update display name')
+        return
+    }
+
+
     if (!messageToBeSent) {
         alert('please enter a message')
         return
     }
+
+
 
     button.innerHTML = `<div class="dot-spinner">
     <div class="dot-spinner__dot"></div>
@@ -135,16 +143,41 @@ function displayMessage() {
     var starCountRef = database.ref('chats');
 
     starCountRef.on('value', (snapshot) => {
-        const data = snapshot.val() || [];
+        const data = snapshot.val() || []
         chatIndex = data.length
         console.log(data);
         document.querySelector('.messanger_main_chat').innerHTML = ''
+
         data.forEach(({ sender, isDeleted, message, time }, i) => {
-            let isMyMessage = sender === auth.currentUser.displayName ? 'right_message' : 'left_message'
+            //tenary operator
+            // let isMyMessage = sender === auth.currentUser.displayName ? 'right_message' : 'left_message'
+
+            // using a regular if statement
+
+            // let isMyMessage
+            // let boolIsMyMessage
+
+
+            // if (sender === auth.currentUser.displayName) {
+            //     isMyMessage = 'right_message'
+            //     boolIsMyMessage = true
+            // } else {
+            //     isMyMessage = 'left_message'
+            //     boolIsMyMessage = false
+            // }
+
+            let isMyMessage
+            if (sender === auth.currentUser.displayName) {
+                isMyMessage = true
+            } else {
+                isMyMessage = false
+            }
+
+
             console.log(isMyMessage);
 
 
-            document.querySelector('.messanger_main_chat').innerHTML += `<div class="${isMyMessage} user_chat">
+            document.querySelector('.messanger_main_chat').innerHTML += `<div ondblclick="deleteMessage(${isMyMessage} , ${i} , ${isDeleted})" class=" user_chat ${isMyMessage ? 'right_message' : 'left_message'} ">
                 <div class="user_image"
                     style="background-image: url(https://res.cloudinary.com/dc6deairt/image/upload/v1638102932/user-32-02_vll8uv.jpg)">
                 </div>
@@ -156,7 +189,7 @@ function displayMessage() {
                     </div>
 
                     <div class="user_original_message">
-                       ${message}
+                       ${isDeleted ? '<i> this message has been deleted </i>' : message}
                     </div>
                 </div>
             </div>
@@ -171,3 +204,42 @@ function displayMessage() {
 }
 
 displayMessage()
+
+
+function goToSettings(params) {
+    window.location.href = 'settings.html'
+}
+
+
+
+let chats = [{ sender: 'tayo' }, { sender: 'heritage' }, { sender: 'simi' }, { sender: "tolu" }]
+chats.forEach((chat, i, arr) => {
+    let isSimi = chat.sender === 'simi' ? 'right_message' : 'left_message'
+    console.log(isSimi);
+
+
+
+})
+
+function deleteMessage(bool, index, isDeleted) {
+
+    if (!bool) {
+        alert('unauthorized')
+        return
+    }
+
+    if (isDeleted === false) {
+        database.ref(`chats/${index}`).update({
+            isDeleted: true
+        });
+    } else {
+        alert('this message has already been deleted')
+        return
+    }
+
+
+    // console.log(index);
+
+    // bool ? alert('you want to delete') : alert('you cant delete , it is not your message')
+}
+

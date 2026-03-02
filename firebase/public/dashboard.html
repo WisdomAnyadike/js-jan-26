@@ -15,10 +15,16 @@
 
     <div class="section_chatbox">
         <header class="chatbox_header">
-            <h1> Welcome <span id="forUserName"> loading... </span>    <button onclick="logUserOut()">log out </button> </h1>
+            <h1 style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+
+                <span>Welcome <span id="forUserName"> loading... </span> <button onclick="logUserOut()">log out
+                    </button></span>
+
+                <button onclick="goToSettings()"> settings </button>
+            </h1>
         </header>
         <div class="messanger_main_chat">
-            <!-- <div class="left_message user_chat">
+            <div class="left_message user_chat">
                 <div class="user_image"
                     style="background-image: url(https://res.cloudinary.com/dc6deairt/image/upload/v1638102932/user-32-01_pfck4u.jpg)">
                 </div>
@@ -34,10 +40,10 @@
                     </div>
                     
                 </div>
-            </div> -->
+            </div>
 
-          
-            
+
+
         </div>
         <form class="messanger_inputarea">
             <input type="text" class="messanger_input" placeholder="Message">
@@ -46,7 +52,7 @@
     </div>
 
 
- 
+
 </body>
 
 </html>

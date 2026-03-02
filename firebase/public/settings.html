@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://www.gstatic.com/firebasejs/12.9.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/12.9.0/firebase-auth-compat.js"></script>
+    <link rel="stylesheet" href="./css/settings.css">
+</head>
+
+<body>
+
+    <div class="split left">
+        <div class="centered">
+            <img src="https://www.w3schools.com/howto/img_avatar2.png" alt="Avatar woman">
+            <h2>Jane Flex</h2>
+            <div class='infoListDiv'>
+                <label>Contact Information</label>
+                <ul class='infoList'>
+                    <li>
+                        <i class="far fa-building"></i>
+                        <span> Company: reactJs Corp </span>
+                    </li>
+                    <li>
+                        <i class="far fa-envelope-open"></i>
+                        <span> Email : email@email.com </span>
+                    </li>
+                </ul>
+            </div>
+            <div class='infoListDiv'>
+                <label>explore</label>
+                <ul class='infoList'>
+                    <li>
+                        <i class="fas fa-hashtag"></i>
+                        <a href='facebook.com'> <span> Social media </span> </a>
+                    </li>
+                    <li>
+                        <i class="far fa-building"></i>
+                        <a href='facebook.com'> <span> Reports </span> </a>
+                    </li>
+
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="split right">
+        <div class="centered">
+
+            <div class='infoListDiv'>
+                <label>Change Setting</label>
+                <ul class='infoList'>
+                    <li>
+                        <span> Dark Mode </span>
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                        </label>
+
+                    </li>
+
+
+
+                </ul>
+            </div>
+
+            <div class='infoListDiv'>
+                <label>Contact Information</label>
+                <ul class='infoList'>
+                    <li>
+                        <span> Change Username </span>
+                        <input type='email' id="userName" placeholder='enter username' oninput="updateUsername(event)" />
+                    </li>
+                    <p id="showSuccess"> </p>
+                    <li>
+                        <span> Old Password </span>
+                        <input type='password' placeholder='old password' />
+                    </li>
+                    <li>
+                        <span> New password </span>
+                        <input type='password' placeholder='new password' />
+                    </li>
+                    <li>
+                        <span> Confirm Password </span>
+                        <input type='password' placeholder='confirm password' />
+                    </li>
+
+                    <button> update password </button>
+
+                </ul>
+            </div>
+
+
+        </div>
+    </div>
+
+</body>
+
+</html>
+<script src="./js/settings.js"></script>

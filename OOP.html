@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // object oriented programming
+
+    new Array()
+    new FileReader()
+
+    class Student {
+        constructor(name, age, course) {
+            this.name = name;
+            this.age = age;
+            this.course = course;
+        }
+
+        increaseAge() {
+            this.age++
+        }
+
+
+    }
+
+    let firstStudent = new Student('dayo', 45, 'mathematics')
+    console.log(firstStudent.name);
+    console.log(firstStudent.age);
+    console.log(firstStudent.course);
+    firstStudent.increaseAge()
+    firstStudent.increaseAge()
+    firstStudent.increaseAge()
+    console.log(firstStudent.age);
+
+    let secondStudent = new Student('tosin', 23, 'physics')
+    console.log(secondStudent.name, secondStudent.age, secondStudent.course)
+    secondStudent.increaseAge()
+
+
+
+
+
+    class Card {
+        constructor(height, width, color, text, id) {
+            this.height = height;
+            this.width = width;
+            this.color = color;
+            this.text = text;
+            this.id = id;
+        }
+
+        createCard() {
+            document.body.innerHTML += ` <div class="${this.id}" style="height: ${this.height}; width: ${this.width}; background-color:${this.color}; margin: 10px; "> 
+        ${this.text}
+
+               <button onclick="(()=> document.querySelector('.${this.id}').style.display = 'none' )()" > delete </button>
+                </div>
+            `
+        }
+
+
+        static removeALLCards() {
+            document.body.innerHTML = ''
+        }
+
+
+    }
+
+
+
+
+
+
+
+
+    let firstCard = new Card('155px', '200px', 'blue', 'hello class', 'card1')
+    firstCard.createCard()
+
+    let secondCard = new Card('255px', '500px', 'red', 'classes are so interesting', 'card2')
+    secondCard.createCard()
+
+    let thirdCard = new Card('255px', '500px', 'yellow', 'classes are so interesting', 'card3')
+    thirdCard.createCard()
+
+
+    class PremiumCard extends Card {
+
+        constructor(height, width, color, text, id, borderRadius) {
+            super(height, width, color, text, id)
+            this.borderRadius = borderRadius
+        }
+
+        createCard() {
+            document.body.innerHTML += ` <div class="${this.id}" style="height: ${this.height}; width: ${this.width}; background-color:${this.color}; margin: 10px; border-radius: ${this.borderRadius}; "> 
+        <h1> ${this.text} </h1>
+
+               <button onclick="(()=> document.querySelector('.${this.id}').style.display = 'none' )()" > delete </button>
+                </div>
+            `
+        }
+
+    }
+
+    // console.log(Card.removeALLCards());
+
+    let anotherCard = new PremiumCard('100px', '100px', 'purple', 'hmmm', 'card4', '5px')
+    anotherCard.createCard()
+
+
+    class BankAccount {
+        #balance = 0
+        #owner
+
+        constructor(owner, balance) {
+            this.owner = owner;
+            if (typeof balance !== "number" || balance < 0) {
+                throw new TypeError('balance must be a number or be above 0')
+            }
+
+            this.#balance = balance;
+
+        }
+
+        get myBalance() {
+            return this.#balance
+        }
+
+        set increaseBalance(amount) {
+            this.#balance = this.#balance + amount
+        }
+
+
+
+    }
+
+
+    let danielsAccount = new BankAccount('daniel', 50)
+    console.log(danielsAccount.balance);
+    console.log(danielsAccount.myBalance);
+    // danielsAccount.balance = 200
+    // console.log(danielsAccount.balance);
+
+    // danielsAccount.balance = 400
+    // console.log(danielsAccount.balance);
+
+    danielsAccount.increaseBalance = 1000
+    console.log(danielsAccount.myBalance);
+
+
+
+
+</script>
